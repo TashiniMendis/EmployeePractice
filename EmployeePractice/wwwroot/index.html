@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Management</h1>
+
+        <div class="average-salary">
+            <button onclick="getAverageSalary()">Get Average Salary</button>
+            <p id="average-salary">Average Salary: -</p>
+        </div>
+
+        <div class="employee-list-header">
+            <h2>Employee List</h2>
+            <button onclick="openAddEmployeeModal()">Add Employee</button>
+        </div>
+
+        <div class="employee-list">
+            <table id="employee-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Date of Birth</th>
+                        <th>Salary</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="employee-table-body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Add Employee Modal -->
+    <div id="add-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeAddModal()">&times;</span>
+            <h2>Add Employee</h2>
+            <form id="add-employee-form" onsubmit="handleFormSubmit(event)">
+                <input type="hidden" id="employee-id">
+                <label for="first-name">First Name:</label>
+                <input type="text" id="first-name" required>
+                <label for="last-name">Last Name:</label>
+                <input type="text" id="last-name" required>
+                <label for="date-of-birth">Date of Birth:</label>
+                <input type="date" id="date-of-birth" required>
+                <label for="salary">Salary:</label>
+                <input type="number" id="salary" required>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Employee Modal -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeEditModal()">&times;</span>
+            <h2>Edit Employee</h2>
+            <form id="edit-employee-form" onsubmit="updateEmployee(event)">
+                <input type="hidden" id="edit-employee-id">
+                <label for="edit-first-name">First Name:</label>
+                <input type="text" id="edit-first-name" required>
+                <label for="edit-last-name">Last Name:</label>
+                <input type="text" id="edit-last-name" required>
+                <label for="edit-date-of-birth">Date of Birth:</label>
+                <input type="date" id="edit-date-of-birth" required>
+                <label for="edit-salary">Salary:</label>
+                <input type="number" id="edit-salary" required>
+                <button type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
